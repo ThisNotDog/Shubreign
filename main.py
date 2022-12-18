@@ -2,19 +2,19 @@ import random
 import os
 import re
 import time
-from events import get_random_event_I
+from events import *
 #rogue-like rpg
 
 #player class holds attributes, amount of gold, and current day
 class Player:
     def __init__(self, name, hp, attack, defense, agility, day, gold):
         self.name = name
-        self.hp = hp
-        self.attack = attack
-        self.defense = defense
-        self.agility = agility
-        self.day = day
-        self.gold = gold
+        self.hp = hp #player's max health points
+        self.attack = attack #player's attack potential
+        self.defense = defense #player's damage mitigation
+        self.agility = agility #player's chance to dodge
+        self.day = day #director of game flow
+        self.gold = gold #currency for shop purchases
     
     def __repr__(self):
         return '''your name is {}\n
@@ -32,7 +32,7 @@ class Monster:
         self.hit_chance = hit_chance
         self.dodge_chance = dodge_chance
         self.attack = attack
-#player object that holds stats, day, and gold
+#player object
 user= Player("", 10, 1, 1, 1, 1, 20)
 #monster objects for fight events
 dargen = Monster("dargen", 6, 1, .50, .30)
@@ -60,14 +60,14 @@ def get_fight_I(user, monster):
     else:
         user.day += 1
             
-        
+#main game loop, picks from either a random event, fight scene, dungeon, shop depending on the player's day class variable
+#runs until the player's hp reaches zero
 def main():
     start = input("welcome to the tyranic peninsula, what is your name?\n")
     user.name = start
     print("hmm...{}, pretty stupid name or whatever, let's just start\n".format(user.name))
     run = True
     while run == True and user.hp > 0:
-        
         if user.day == 1 or user.day == 4 or user.day == 6:
             get_fight_I(user, dargen)
             print(user.gold)

@@ -1,6 +1,7 @@
 #file for event functions
+import random
 def get_random_event_I(user):
-    i = random.randint(1, 3)
+    i = 1   #random.randint(1, 3)
     if i == 1:
         mister_wizard_event_I(user)
     if i == 2:
@@ -25,19 +26,33 @@ def get_random_event_III(user):
         sneeple_snopple_event_III(user)
     if i == 3:
         scary_frog_event_III(user)
-    
+        
+def sneeple_snopple_event_I(user):
+    print('''argargar i am the sneeple snopple what say ye?\n
+             i implore your tarnished self to free me from my misery
+          ''')
+    input("press y to free the sneeple snopple or n to not")
+    if input == y:
+        print('''the vase be merciful for i am free\n
+                 take this as a reward
+              ''')
+        user.gold += 20
+    else:
+        print('''cautious are those who have something to lose\n
+                 i pity you, and so, restore your power, begone
+              ''')
+        
 def mister_wizard_event_I(user):
     print('''well hello there, you look spiffy...unlike my ex-wife. \n
              now would you mind bending down and checking if my shoes are tied?\n
           ''')
-    input("press y for yes or n for no")
-    if input == y:
+    desire = input("press y for yes or n for no")
+    if desire == "y":
         i = random.randint(1, 2)
         if i == 1:
             print('''well done lad, a bachelor such as i should never tie shoes \n
                      now as a reward i shall cast a spell on you with my eyes closed \n
-                     best of luck!
-                  ''')
+                     best of luck!''')
             x = random.randint(1, 3)
             if x == 1:
                 user.attack += 1
@@ -67,8 +82,8 @@ def mister_wizard_event_II(user):
     print('''my wife...wife...it's over i'm finished i... \n
              i just need clay...needclay...inawpsneed;adpoe clay\n
           ''')
-    input("press y to dig for clay, press no to pat him on the back")
-    if input == y:
+    desire = input("press y to dig for clay, press no to pat him on the back")
+    if desire == "y":
         i = random.randint(1, 2)
         if i == 1:
             print('''clay...give me the clay...clay is good\n
@@ -83,7 +98,7 @@ def mister_wizard_event_II(user):
             if x == 3:
                 user.agility += 2
                 print("your agility has increased by 2")
-    if input == n:
+    if desire == "n":
         print('''roll the die, clay is the alpha and omega...\n
                  uncover thee treachery and stand barren\n
               ''')
@@ -102,7 +117,7 @@ def mister_wizard_event_II(user):
             user.gold += 40
         if x == y:
             print('''oh merciful powerful clay...a beacon of change\n
-                     my tears are bountifulul to your predicament, change the world\n
+                     my tears are bountiful toward your predicament, change the world\n
                   ''')
             user.attack += 1
             user.defense += 1
@@ -111,8 +126,6 @@ def mister_wizard_event_II(user):
         
         user.day += 1
 
-    
-    
     
     
     

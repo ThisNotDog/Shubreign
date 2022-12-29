@@ -74,7 +74,7 @@ def mister_wizard_event_I(user):
                 print("dagnabbit, i guess you win, take your spoils and leave")
                 user.gold += 20
             if x == 2:
-                pprint("yippy! get rekt lmao")
+                print("yippy! get rekt lmao")
                 user.gold -= 5
         user.day += 1
 

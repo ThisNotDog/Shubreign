@@ -1,22 +1,22 @@
+#rogue-like rpg
 import random
 import os
 import re
 import time
+import sys
+from shop_and_items import *
 from events import *
-
-
-#rogue-like rpg
+from dungeon import *
 
 #player class holds attributes and amount of gold
 class Player:
-    def __init__(self, name, hp, attack, defense, agility, day, gold, current_hp):
+    def __init__(self, name, hp, attack, defense, agility, day, current_hp):
         self.name = name
         self.hp = hp
         self.attack = attack
         self.defense = defense
         self.agility = agility
         self.day = day
-        self.gold = gold
         self.current_hp = current_hp
     
     def __repr__(self):
@@ -26,11 +26,12 @@ class Player:
                   your agility is: {}\n
                   your gold is: {}\n
                 '''.format(name, hp, attack, defense, agility, gold)
-class Items(Player):
-    def __init__(self, weapon, shield, consumable):
+class Items():
+    def __init__(self, weapon, shield, consumable, gold):
         self.weapon = weapon
         self.shield = shield
         self.consumable = consumable
+        self.gold = gold
         
 #monster class holds enemy stats               
 class Monster:
@@ -40,14 +41,13 @@ class Monster:
         self.hit_chance = hit_chance
         self.dodge_chance = dodge_chance
         self.attack = attack
-#player object that holds stats, day, gold, and current hp
-user = Player("", 10, 1, 1, 1, 1, 20, 10)
-#monster objects for fight events
-dargen = Monster("dargen", 6, 1, .50, .30)
 
+#monster object for fight events
+dargen = Monster("dargen", 6, 1, .50, .30)
 
 def get_fight_I(user, monster):
     print('you see a {}, are you prepared to fight?'.format(monster.name))
+    
     i = input('press y to fight or n to run away\n')
     if i == "y":
         while user.hp > 0 and monster.hp > 0:
@@ -68,21 +68,26 @@ def get_fight_I(user, monster):
     else:
         user.day += 1
             
-        
+user = Player("", 10, 1, 1, 1, 1, 20, 10)
+user_items = Items("", "", "")
+get_shop_I(user)
 def main():
+    app = QApplication(sys.argv)
+    w = MainWindow()
+    w.show()
+    app.exec()
     start = input("welcome to the tyranic peninsula, what is your name?\n")
     user.name = start
     print("hmm...{}, pretty stupid name or whatever, let's just start\n".format(user.name))
     run = True
     while run == True and user.hp > 0:
-        
         if user.day in (1, 4, 6):
             get_fight_I(user, dargen)
             print(user.gold)
         if user.day in (2, 7, 8):
             get_random_event_I(user)
         if user.day == 3:
-            get_dungeon_I
+            dungeon.get_dungeon_I
         if user.day in (5, 9):
             get_shop_I
         if user.day == 10:

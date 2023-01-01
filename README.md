@@ -1,4 +1,5 @@
-#Shubreign
-Rogue-like RPG with game progression determined by chance.
+Shubreign
+
+A rogue-like RPG with game progression determined by chance.
 
 

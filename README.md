@@ -1,1 +1,4 @@
-Rogue-like rpg that focuses around randomized events as game progression.
+#Shubreign
+Rogue-like RPG with game progression determined by chance.
+
+

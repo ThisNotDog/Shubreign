@@ -37,8 +37,6 @@ class Monster:
     def __init__(self, name, hp, attack):
         self.name = name
         self.hp = hp
-        self.hit_chance = hit_chance
-        self.dodge_chance = dodge_chance
         self.attack = attack
 
 #monster object for fight events

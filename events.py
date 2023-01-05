@@ -1,41 +1,48 @@
 #file for event functions
 import random
-def get_random_event_I(user):
-    i = 1   #random.randint(1, 3)
+#gets random event 
+def get_random_event_I():
+    i = random.randint(1, 3)
     if i == 1:
-        mister_wizard_event_I(user)
+        mister_wizard_event_I()
     if i == 2:
-        sneeple_snopple_event_I(user)
+        sneeple_snopple_event_I()
     if i == 3:
-        scary_frog_event_I(user)
+        scary_frog_event_I()
+    else:
+        raise ValueError("Expected value of i is not 1-3")
     
-def get_random_event_II(user):
+def get_random_event_II():
     i = random.randint(1, 3)
     if i == 1:
-        mister_wizard_event_II(user)
+        mister_wizard_event_II()
     if i == 2:
-        sneeple_snopple_event_II(user)
+        sneeple_snopple_event_II()
     if i == 3:
-        scary_frog_event_II(user)
+        scary_frog_event_II()
+    else:
+        raise ValueError("Expected value of i is not 1-3")
 
-def get_random_event_III(user):
+def get_random_event_III():
     i = random.randint(1, 3)
     if i == 1:
-        mister_wizard_event_III(user)
+        mister_wizard_event_III()
     if i == 2:
-        sneeple_snopple_event_III(user)
+        sneeple_snopple_event_III()
     if i == 3:
-        scary_frog_event_III(user)
-
-def scary_frog_event_I(user):
+        scary_frog_event_III()
+    else:
+        raise ValueError("Expected value of i is not 1-3")
+    
+def scary_frog_event_I():
     print('''
           ribbt.....ribbt....
           ''')
-    desire = input('''
+    choice = input('''
                    the frog appears to speak in tongue, and reaches out a hand.\n
                    type y to grab their hand, n to pass by
                    ''')
-    if desire == "y":
+    if choice == "y":
         print('''
               the frog latches onto your arm, but it doesn't hurt, it actually feels great\n
               ''')
@@ -51,13 +58,13 @@ def scary_frog_event_I(user):
         print("you have gained 10 gold")
     
     
-def sneeple_snopple_event_I(user):
+def sneeple_snopple_event_I():
     print('''
           argargar i am the sneeple snopple what say ye?\n
           i implore your tarnished self to free me from my misery
           ''')
-    desire = input("press y to free the sneeple snopple or n to not")
-    if desire == "y":
+    choice = input("press y to free the sneeple snopple or n to not")
+    if choice == "y":
         print('''
               the vase be merciful for i am free\n
               take this as a reward
@@ -69,13 +76,13 @@ def sneeple_snopple_event_I(user):
               i pity you, and so, restore your power, begone
               ''')
         
-def mister_wizard_event_I(user):
+def mister_wizard_event_I():
     print('''
           well hello there, you look spiffy...unlike my ex-wife. \n
           now would you mind bending down and checking if my shoes are tied?\n
           ''')
-    desire = input("press y for yes or n for no")
-    if desire == "y":
+    choice = input("press y for yes or n for no")
+    if choice == "y":
         i = random.randint(1, 2)
         if i == 1:
             print('''
@@ -113,8 +120,8 @@ def mister_wizard_event_I(user):
 #     print('''my wife...wife...it's over i'm finished i... \n
 #              i just need clay...needclay...inawpsneed;adpoe clay\n
 #           ''')
-#     desire = input("press y to dig for clay, press no to pat him on the back")
-#     if desire == "y":
+#     choice = input("press y to dig for clay, press no to pat him on the back")
+#     if choice == "y":
 #         i = random.randint(1, 2)
 #         if i == 1:
 #             print('''clay...give me the clay...clay is good\n
@@ -129,7 +136,7 @@ def mister_wizard_event_I(user):
 #             if x == 3:
 #                 user.agility += 2
 #                 print("your agility has increased by 2")
-#     if desire == "n":
+#     if choice == "n":
 #         print('''roll the die, clay is the alpha and omega...\n
 #                  uncover thee treachery and stand barren\n
 #               ''')

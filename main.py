@@ -42,7 +42,7 @@ class Monster:
 #monster object for fight events
 dargen_monster = Monster("dargen", 6, 1)
 
-def get_fight_I(user, monster):
+def get_fight_I(monster):
     print('you see a {}, are you prepared to fight?'.format(monster.name))
     
     i = input('press y to fight or n to run away\n')
@@ -69,10 +69,10 @@ def get_fight_I(user, monster):
 user = Player("", 10, 1, 1, 1, 1, 20, 10)
 user_items = Items("", "", "")
 def main():
-    start = input("welcome to the tyranic peninsula, what is your name?\n")
-    if start != None:
-        user.name == start
-    if start == None:
+    name = input("welcome to the tyranic peninsula, what is your name?\n")
+    if name != None:
+        user.name == name
+    if name == None:
         user.name == "idiot"
     print("hmm...{}, pretty stupid name or whatever, let's just start\n".format(user.name))
     run = True
@@ -81,13 +81,13 @@ def main():
             get_fight_I(user, dargen)
             print(user.gold)
         if user.day in (2, 7, 8):
-            get_random_event_I(user)
+            get_random_event_I()
         if user.day == 3:
-            dungeon.get_dungeon_I
+            dungeon.get_dungeon_I()
         if user.day in (5, 9):
-            get_shop_I
+            get_shop_I()
         if user.day == 10:
-            boss_I
+            boss_I()
     run = False
 main()   
         

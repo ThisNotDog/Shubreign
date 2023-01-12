@@ -1,13 +1,10 @@
 #rogue-like rpg
 import random
 import os
-import re
-import time
 import sys
-from shop_and_items import *
-from events import *
-from dungeon import *
-
+from . shop_and_items import *
+from . import events
+from . import dungeons
 #player class holds attributes and amount of gold
 class Player:
     def __init__(self, name, hp, attack, defense, day, current_hp):

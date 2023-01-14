@@ -1,40 +1,46 @@
 #file for event functions
 import random
-#gets random event 
-def get_random_event_I():
+#gets random event
+for i in range(1,20):
     i = random.randint(1, 3)
-    if i == 1:
-        mister_wizard_event_I()
-    if i == 2:
-        sneeple_snopple_event_I()
-    if i == 3:
-        scary_frog_event_I()
-    else:
+    print(i)
+def get_random_event_I(user):
+    i = random.randint(1, 3)
+    print(i)
+    try:
+        if i == 1:
+            mister_wizard_event_I(user)
+        if i == 2:
+            sneeple_snopple_event_I(user)
+        if i == 3:
+            scary_frog_event_I(user)
+    except:
         raise ValueError("Expected value of i is not 1-3")
     
-def get_random_event_II():
+def get_random_event_II(user):
     i = random.randint(1, 3)
-    if i == 1:
-        mister_wizard_event_II()
-    if i == 2:
-        sneeple_snopple_event_II()
-    if i == 3:
-        scary_frog_event_II()
-    else:
+    try:
+        if i == 1:
+            mister_wizard_event_II(user)
+        if i == 2:
+            sneeple_snopple_event_II(user)
+        if i == 3:
+            scary_frog_event_II(user)
+    except:
         raise ValueError("Expected value of i is not 1-3")
 
-def get_random_event_III():
+def get_random_event_III(user):
     i = random.randint(1, 3)
     if i == 1:
-        mister_wizard_event_III()
+        mister_wizard_event_III(user)
     if i == 2:
-        sneeple_snopple_event_III()
+        sneeple_snopple_event_III(user)
     if i == 3:
-        scary_frog_event_III()
+        scary_frog_event_III(user)
     else:
         raise ValueError("Expected value of i is not 1-3")
     
-def scary_frog_event_I():
+def scary_frog_event_I(user):
     print('''
           ribbt.....ribbt....
           ''')
@@ -58,7 +64,7 @@ def scary_frog_event_I():
         print("you have gained 10 gold")
     
     
-def sneeple_snopple_event_I():
+def sneeple_snopple_event_I(user):
     print('''
           argargar i am the sneeple snopple what say ye?\n
           i implore your tarnished self to free me from my misery
@@ -76,7 +82,7 @@ def sneeple_snopple_event_I():
               i pity you, and so, restore your power, begone
               ''')
         
-def mister_wizard_event_I():
+def mister_wizard_event_I(user):
     print('''
           well hello there, you look spiffy...unlike my ex-wife. \n
           now would you mind bending down and checking if my shoes are tied?\n

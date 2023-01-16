@@ -45,18 +45,18 @@ def radio_obstacle(user):
 def lonelyShoe_obstacle(user):
     print("5")
 def dungeon_I(user):
-    count = 0
-    for i in range(1, 6):        
-        i = random.randint(1, 5)
-        if i == 1:
+    for i in range(1, 6):       
+        r = random.randint(1, 5)
+        if r == 1:
             cliff_obstacle(user)
-        if i == 2:
+        if r == 2:
             ganome_obstacle(user)
-        if i == 3:
+        if r == 3:
             patchy_obstacle(user)
-        if i == 4:
+        if r == 4:
             radio_obstacle(user)
-        if i == 5:
+        if r == 5:
             lonelyShoe_obstacle(user)
+    user.day += 1
 
 

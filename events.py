@@ -1,9 +1,6 @@
 #file for event functions
 import random
 #gets random event
-for i in range(1,20):
-    i = random.randint(1, 3)
-    print(i)
 def get_random_event_I(user):
     i = random.randint(1, 3)
     print(i)

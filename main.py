@@ -5,7 +5,8 @@ import sys
 from shop_and_items import *
 from events import *
 from dungeon import *
-from gooey import Gooey
+from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import QApplication, QMainWindow
 
 
 #player class holds attributes and amount of gold
@@ -34,6 +35,22 @@ class Monster:
         self.hp = hp
         self.attack = attack
 
+def window():
+    app = QApplication(sys.argv)
+    win = QMainWindow()
+    win.setGeometry(200, 200, 300, 300)
+    win.setWindowTitle("bloop")
+    
+    label = QtWidgets.QLabel(win)
+    label.setText("what is happening")
+    label.move(50, 50)
+    
+    b1 = QtWidgets.QPushButton(win)
+    b1.setText("button thing")
+    b1.move(150, 150)
+
+    win.show()
+    sys.exit(app.exec_())
 #monster object for fight events
 dargen_monster = Monster("dargen", 6, 1)
 
@@ -61,7 +78,7 @@ def get_fight_I(user, monster):
         user.day += 1
     else:
         user.day += 1
-@Gooey
+
 def main():
     user = Player("", 10, 1, 1, 1, 10, 0)
     user_items = Items("", "", "")

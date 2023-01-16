@@ -3,8 +3,12 @@ import random
 def get_shop_I(user):
     a = "dagger"
     b = "plastic"
-    c == "health potion"
-    print("welcome to my shop\n i currently have three items\n a dagger for 15gp\n a plastic shield for 20gp\n and a health potion for 30gp\n which of these would you like?\n")
+    c = "health potion"
+    print("welcome to my shop\n i currently have three items" \
+          "a dagger for 15gp" \
+          "a plastic shield for 20gp" \
+          "and a health potion for 30gp" \
+          "which of these would you like?")
     count = 0
     while count < 4:
         pass

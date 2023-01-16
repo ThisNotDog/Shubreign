@@ -5,6 +5,9 @@ import sys
 from shop_and_items import *
 from events import *
 from dungeon import *
+from gooey import Gooey
+
+
 #player class holds attributes and amount of gold
 class Player:
     def __init__(self, name, hp, attack, defense, day, current_hp, gold):
@@ -58,8 +61,7 @@ def get_fight_I(user, monster):
         user.day += 1
     else:
         user.day += 1
-            
-
+@Gooey
 def main():
     user = Player("", 10, 1, 1, 1, 10, 0)
     user_items = Items("", "", "")
@@ -83,8 +85,6 @@ def main():
         if user.day == 10:
             boss_I(user)
     run = False
-main()   
-        
-        
-        
-        
+
+if __name__ == "__main__":
+    main()

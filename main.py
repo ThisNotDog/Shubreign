@@ -55,6 +55,7 @@ def get_fight_I(user, monster):
             if user.hp <= 0:
                 print('you have died, game over')
                 run = False
+        user.day += 1
     else:
         user.day += 1
             

@@ -65,9 +65,9 @@ def main():
     user_items = Items("", "", "")
     name = input("welcome to the tyranic peninsula, what is your name?\n")
     if name != None:
-        user.name == name
+        user.name = name
     if name == None:
-        user.name == "idiot"
+        user.name = "idiot"
     print(f"hmm...{user.name}, pretty stupid name or whatever, let's just start\n")
     run = True
     while run == True and user.hp > 0:
@@ -83,8 +83,5 @@ def main():
         if user.day == 10:
             boss_I(user)
     run = False
-main()   
-        
-        
-        
-        
+if __name__ == '__main__':
+    main()

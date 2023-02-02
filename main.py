@@ -15,7 +15,7 @@ class Player:
         self.day = day
         self.current_hp = current_hp
         self.gold = gold
-    
+
     def __repr__(self):
         return f"your name is {self.name}\n your attack is: {self.attack}\n your defense is: {self.defense}\n"
 class Items:
@@ -23,8 +23,8 @@ class Items:
         self.weapon = weapon
         self.shield = shield
         self.consumable = consumable
-        
-#monster class holds enemy stats               
+
+#monster class holds enemy stats
 class Monster:
     def __init__(self, name, hp, attack):
         self.name = name
@@ -35,30 +35,30 @@ class Monster:
 dargen_monster = Monster("dargen", 6, 1)
 
 def get_fight_I(user, monster):
-    print(f'you see a {monster.name}, are you prepared to fight?')
-    
-    i = input('press y to fight or n to run away\n')
+    print(fyou see a {monster.name}, are you prepared to fight?")
+
+    i = input("press y to fight or n to run away\n")
     if i == "y":
         while user.current_hp > 0 and monster.hp > 0:
             player_hit = random.randint(0, user.attack)
             monster_hit = random.randint(0, monster.attack)
-            print('you swing your weapon at the monster')
+            print("you swing your weapon at the monster")
             monster.hp -= player_hit
-            print(f'you have hit the monster for {player_hit} damage')
+            print(f"you have hit the monster for {player_hit} damage")
             if monster.hp <= 0:
-                print('you have vanquished the monster and find coins in their pockets')
+                print("you have vanquished the monster and find coins in their pockets")
                 user.gold += 20
                 user.day += 1
-            print('the monster attacks you')
+            print("the monster attacks you")
             user.current_hp -= monster_hit
-            print(f'you have been hit for {monster_hit} damage')
+            print(f"you have been hit for {monster_hit} damage")
             if user.hp <= 0:
-                print('you have died, game over')
+                print("you have died, game over")
                 run = False
         user.day += 1
     else:
         user.day += 1
-            
+
 
 def main():
     user = Player("", 10, 1, 1, 1, 10, 0)
@@ -83,5 +83,5 @@ def main():
         if user.day == 10:
             boss_I(user)
     run = False
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

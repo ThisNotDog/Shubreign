@@ -12,8 +12,8 @@ def get_random_event_I(user):
         if i == 3:
             scary_frog_event_I(user)
     except:
-        raise ValueError("Expected value of i is not 1-3")
-    
+        raise ValueError("Expected value is not 1-3")
+
 def get_random_event_II(user):
     i = random.randint(1, 3)
     try:
@@ -24,75 +24,76 @@ def get_random_event_II(user):
         if i == 3:
             scary_frog_event_II(user)
     except:
-        raise ValueError("Expected value of i is not 1-3")
+        raise ValueError("Expected value is not 1-3")
 
 def get_random_event_III(user):
     i = random.randint(1, 3)
-    if i == 1:
-        mister_wizard_event_III(user)
-    if i == 2:
-        sneeple_snopple_event_III(user)
-    if i == 3:
-        scary_frog_event_III(user)
-    else:
-        raise ValueError("Expected value of i is not 1-3")
-    
+    try:
+        if i == 1:
+            mister_wizard_event_III(user)
+        if i == 2:
+            sneeple_snopple_event_III(user)
+        if i == 3:
+            scary_frog_event_III(user)
+    except:
+        raise ValueError("Expected value is not 1-3")
+
 def scary_frog_event_I(user):
-    print('''
+    print("""
           ribbt.....ribbt....
-          ''')
-    choice = input('''
+          """)
+    choice = input("""
                    the frog appears to speak in tongue, and reaches out a hand.\n
                    type y to grab their hand, n to pass by
-                   ''')
+                   """)
     if choice == "y":
-        print('''
+        print("""
               the frog latches onto your arm, but it doesn't hurt, it actually feels great\n
-              ''')
+              """)
         user.defense += 1
         user.hp += 2
         print("your defense has been raised by 1\n your hp has been raised by 2")
     else:
-        print('''
+        print("""
               the frog eyes you with its indeterminable gaze\n
               as you pass you feel yourself become lighter
-              ''')
+              """)
         user.gold += 10
         print("you have gained 10 gold")
-    
-    
+
+
 def sneeple_snopple_event_I(user):
-    print('''
+    print("""
           argargar i am the sneeple snopple what say ye?\n
           i implore your tarnished self to free me from my misery
-          ''')
+          """)
     choice = input("press y to free the sneeple snopple or n to not")
     if choice == "y":
-        print('''
+        print("""
               the vase be merciful for i am free\n
               take this as a reward
-              ''')
+              """)
         user.gold += 20
     else:
-        print('''
+        print("""
               cautious are those who have something to lose\n
               i pity you, and so, restore your power, begone
-              ''')
-        
+              """)
+
 def mister_wizard_event_I(user):
-    print('''
+    print("""
           well hello there, you look spiffy...unlike my ex-wife. \n
           now would you mind bending down and checking if my shoes are tied?\n
-          ''')
+          """)
     choice = input("press y for yes or n for no")
     if choice == "y":
         i = random.randint(1, 2)
         if i == 1:
-            print('''
+            print("""
                   well done lad, a bachelor such as i should never tie shoes \n
                   now as a reward i shall cast a spell on you with my eyes closed \n
                   best of luck!
-                  ''')
+                  """)
             x = random.randint(1, 3)
             if x == 1:
                 user.attack += 1
@@ -104,12 +105,12 @@ def mister_wizard_event_I(user):
                 user.agility += 1
                 print("your agility has been raised by 3")
         if i == 2:
-            print('''
+            print("""
                   just like my ex-wife, you're all the same \n
                   well i guess we'll play a little game \n
                   i'll close my eyes and cast an alchemy spell \n
                   if i win i take money from you and if you win, well i guess you get some
-                  ''')
+                  """)
             x = random.randint(1, 2)
             if x == 1:
                 print("dagnabbit, i guess you win, take your spoils and leave")
@@ -164,9 +165,7 @@ def mister_wizard_event_I(user):
 #             user.defense += 1
 #             user.agility += 1
 #             print("your attack, defense, and agility have increased by 1")
-#         
+#
 #         user.day += 1
-# 
-#     
-    
-    
+#
+#

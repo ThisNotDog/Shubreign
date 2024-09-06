@@ -6,18 +6,21 @@ from shop_and_items import *
 from events import *
 from dungeon import *
 #player class holds attributes and amount of gold
+
+
 class Player:
     def __init__(self, name, hp, attack, defense, day, current_hp, gold):
         self.name = name
         self.hp = hp
         self.attack = attack
         self.defense = defense
-        self.day = 0
+        self.day = 1
         self.current_hp = current_hp
         self.gold = gold
 
     def __repr__(self):
         return f"your name is {self.name}\n your attack is: {self.attack}\n your defense is: {self.defense}\n"
+
 class Items:
     def __init__(self, weapon, shield, consumable):
         self.weapon = weapon
@@ -481,55 +484,54 @@ def boss_III(user):
     else:
         user.day += 1
 
+user = Player("", 10, 1, 1, 1, 10, 0)
+user_items = Items("", "", "")
+
 def main():
-    user = Player("", 10, 1, 1, 1, 10, 0)
-    user_items = Items("", "", "")
     name = input("welcome to the tyranic peninsula, what is your name?\n")
-    if name != None:
-        user.name = name
-    if name == None:
-        user.name = "idiot"
+    user.name = name if name else "idiot"
     print(f"hmm...{user.name}, pretty stupid name or whatever, let's just start\n")
-    run = True
-    while run == True and user.hp > 0:
-        if user.day in (1, 4, 6):
+    while user.hp > 0:
+        if user.day == 1:
             get_fight_I(user, dargen_monster)
             print(user.gold)
-        if user.day in (2, 7, 8):
+        elif user.day in (2, 7, 8):
             get_random_event_I(user)
-        if user.day == 3:
+        elif user.day == 3:
             dungeon_I(user)
-        if user.day in (5, 9):
+        elif user.day in (5, 9):
             get_shop_I(user)
-        if user.day == 10:
+        elif user.day == 10:
             boss_I(user)
-        if user.day in (11, 14, 16):
+        elif user.day in (11, 14, 16):
             get_fight_II(user, dargen_monster)
             print(user.gold)
-        if user.day in (12, 17, 18):
+        elif user.day in (12, 17, 18):
             get_random_event_II(user)
-        if user.day == 13:
+        elif user.day == 13:
             dungeon_II(user)
-        if user.day in (15, 19):
+        elif user.day in (15, 19):
             get_shop_II(user)
-        if user.day == 20:
+        elif user.day == 20:
             boss_II(user)
-        if user.day in (21, 24, 26):
+        elif user.day in (21, 24, 26):
             get_fight_III(user, dargen_monster)
             print(user.gold)
-        if user.day in (22, 27, 28):
+        elif user.day in (22, 27, 28):
             get_random_event_III(user)
-        if user.day == 23:
+        elif user.day == 23:
             dungeon_III(user)
-        if user.day in (25, 29):
+        elif user.day in (25, 29):
             get_shop_III(user)
-        if user.day == 30:
+        elif user.day == 30:
             boss_III(user)
-        if user.day == 31:
+        elif user.day == 31:
             print("you have completed the game, congratulations!")
             run = False
-        if user.hp <= 0:
+            sys.exit()
+        else:
             print("you have died, game over")
+            user.hp = 0
     run = False
     sys.exit()
 

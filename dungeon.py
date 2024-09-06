@@ -41,22 +41,93 @@ def patchy_obstacle(user):
             print("you feel your heart grow fainter\n your hp level has decreased by 3")
             user.current_hp -= 3
 def radio_obstacle(user):
-    print("4")
-def lonelyShoe_obstacle(user):
-    print("5")
+    print("you hear a radio playing in the distance\n")
+    choice = input("type y to investigate, n to leave")
+    if choice != "y":
+        pass
+    if choice == "y":
+        i = random.randint(1, 2)
+        if i == 1:
+            print("you feel a surge of power\n your attack has been raised by 3")
+            user.attack += 3
+        if i == 2:
+            print("you feel a surge of power\n your defense has been raised by 3")
+            user.defense += 3
+    
+def lonely_shoe_obstacle(user):
+    print("you see a shoe on the ground\n")
+    choice = input("type y to pick it up, n to leave")
+    if choice != "y":
+        pass
+    if choice == "y":
+        i = random.randint(1, 2)
+        if i == 1:
+            print("you feel a surge of power\n your attack has been raised by 1")
+            user.attack += 1
+        if i == 2:
+            print("you feel a surge of power\n your defense has been raised by 1")
+            user.defense += 1
+
 def dungeon_I(user):
-    for i in range(1, 6):       
+    """
+    Handles the dungeon exploration for the user.
+    
+    Parameters:
+    user (Player): The player object.
+    """
+    for _ in range(5):       
         r = random.randint(1, 5)
         if r == 1:
             cliff_obstacle(user)
-        if r == 2:
+        elif r == 2:
             ganome_obstacle(user)
-        if r == 3:
+        elif r == 3:
             patchy_obstacle(user)
-        if r == 4:
+        elif r == 4:
             radio_obstacle(user)
-        if r == 5:
-            lonelyShoe_obstacle(user)
+        elif r == 5:
+            lonely_shoe_obstacle(user)
     user.day += 1
 
+def dungeon_II(user):
+    """
+    Handles the dungeon exploration for the user.
+    
+    Parameters:
+    user (Player): The player object.
+    """
+    for _ in range(5):       
+        r = random.randint(1, 5)
+        if r == 1:
+            cliff_obstacle(user)
+        elif r == 2:
+            ganome_obstacle(user)
+        elif r == 3:
+            patchy_obstacle(user)
+        elif r == 4:
+            radio_obstacle(user)
+        elif r == 5:
+            lonely_shoe_obstacle(user)
+    user.day += 1
+
+def dungeon_III(user):
+    """
+    Handles the dungeon exploration for the user.
+    
+    Parameters:
+    user (Player): The player object.
+    """
+    for _ in range(5):       
+        r = random.randint(1, 5)
+        if r == 1:
+            cliff_obstacle(user)
+        elif r == 2:
+            ganome_obstacle(user)
+        elif r == 3:
+            patchy_obstacle(user)
+        elif r == 4:
+            radio_obstacle(user)
+        elif r == 5:
+            lonely_shoe_obstacle(user)
+    user.day += 1
 
